@@ -154,3 +154,10 @@ def list_all_reviews():
                 print(review.full_review())
         else:
             print(f"No reviews found for {customer.full_name()}.")
+
+def fanciest_restaurant():
+    fanciest = Restaurant.fanciest()
+    if fanciest:
+        print(f"The fanciest restaurant is: {fanciest}")
+    else:
+        print("No restaurants found.")

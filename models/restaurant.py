@@ -114,3 +114,14 @@ class Restaurant:
         rows = CURSOR.execute(sql, (self.id,)).fetchall()
         from models.customer import Customer
         return [Customer.instance_from_db(row) for row in rows]
+    
+    @classmethod
+    def fanciest(cls):
+        sql = """
+            SELECT *
+            FROM restaurants
+            ORDER BY price DESC
+            LIMIT 1
+        """
+        row = CURSOR.execute(sql).fetchone()
+        return cls.instance_from_db(row) if row else None
