@@ -15,6 +15,7 @@ from helpers import (
     return_customer_fullname,
     get_customers_favourite_restaurant,
     customer_delete_reviews,
+    list_all_reviews,
 )
 
 def main():
@@ -34,6 +35,7 @@ def main():
         print("12. Get Customer's Full Name")
         print("13. Get Customer's Favorite Restaurant")
         print("14. Delete Customer Reviews")
+        print("15. List All Reviews")
         print("0. Exit")
 
         choice = input("Enter your choice: ")
@@ -66,6 +68,8 @@ def main():
             get_customers_favourite_restaurant()
         elif choice == "14":
             customer_delete_reviews()
+        elif choice == "15":
+            list_all_reviews()
         elif choice == "0":
             break
         else:

@@ -143,3 +143,14 @@ def customer_delete_reviews():
         print(f"Reviews by {customer.full_name()} for {restaurant.name} deleted successfully.")
     else:
         print("Invalid customer or restaurant ID.")
+
+def list_all_reviews():
+    customers = Customer.get_all()
+    for customer in customers:
+        print(f"Reviews by {customer.full_name()}:")
+        reviews = customer.reviews()
+        if reviews:
+            for review in reviews:
+                print(review.full_review())
+        else:
+            print(f"No reviews found for {customer.full_name()}.")

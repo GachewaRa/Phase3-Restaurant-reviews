@@ -107,3 +107,8 @@ class Review:
     @property
     def restaurant(self):
         return Restaurant.find_by_id(self.restaurant_id)
+    
+    def full_review(self):
+        customer = self.customer
+        restaurant = self.restaurant
+        return f"Review for {restaurant.name} by {customer.full_name()}: {self.star_rating} stars."
