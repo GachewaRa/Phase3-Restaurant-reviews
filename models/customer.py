@@ -123,4 +123,11 @@ class Customer:
             return None
         highest_rating = max(reviews, key=lambda review: review.star_rating)
         return highest_rating.restaurant
-
+    
+    def delete_reviews(self, restaurant):
+        sql = """
+            DELETE FROM reviews
+            WHERE customer_id = ? AND restaurant_id = ?
+        """
+        CURSOR.execute(sql, (self.id, restaurant.id))
+        CONN.commit()

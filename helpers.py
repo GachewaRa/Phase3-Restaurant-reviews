@@ -133,3 +133,13 @@ def get_customers_favourite_restaurant():
     else:
         print(f"Customer with ID {customer_id} not found.")
 
+def customer_delete_reviews():
+    customer_id = int(input("Enter the customer ID: "))
+    restaurant_id = int(input("Enter the restaurant ID to delete reviews for: "))
+    customer = Customer.find_by_id(customer_id)
+    restaurant = Restaurant.find_by_id(restaurant_id)
+    if customer and restaurant:
+        customer.delete_reviews(restaurant)
+        print(f"Reviews by {customer.full_name()} for {restaurant.name} deleted successfully.")
+    else:
+        print("Invalid customer or restaurant ID.")
