@@ -120,3 +120,16 @@ def return_customer_fullname():
         print(f"{customer.first_name} {customer.last_name}")
     else:
         print(f"Customer with ID {customer_id} not found.")
+
+def get_customers_favourite_restaurant():
+    customer_id = int(input("Enter the customer ID: "))
+    customer = Customer.find_by_id(customer_id)
+    if customer:
+        favourite = customer.favourite_restaurant()
+        if favourite:
+            print(f"{customer.full_name()}'s favorite restaurant is {favourite.name}.")
+        else:
+            print(f"{customer.full_name()} has not reviewed any restaurants yet.")
+    else:
+        print(f"Customer with ID {customer_id} not found.")
+

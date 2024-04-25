@@ -13,6 +13,7 @@ from helpers import (
     list_restaurant_reviews,
     list_customer_reviews,
     return_customer_fullname,
+    get_customers_favourite_restaurant,
 )
 
 def main():
@@ -30,6 +31,7 @@ def main():
         print("10. List restaurant reviews")
         print("11. List customer reviews")
         print("12. Get Customer's Full Name")
+        print("13. Get Customer's Favorite Restaurant")
         print("0. Exit")
 
         choice = input("Enter your choice: ")
@@ -58,6 +60,8 @@ def main():
             list_customer_reviews()
         elif choice == "12":
             return_customer_fullname()
+        elif choice == "13":
+            get_customers_favourite_restaurant()
         elif choice == "0":
             break
         else:
