@@ -1,3 +1,5 @@
+#helpers.py
+
 from models.restaurant import Restaurant
 from models.customer import Customer
 from models.review import Review
@@ -108,5 +110,13 @@ def list_customer_reviews():
                 print(review)
         else:
             print(f"No reviews found for {customer.first_name} {customer.last_name}.")
+    else:
+        print(f"Customer with ID {customer_id} not found.")
+
+def return_customer_fullname():
+    customer_id = int(input("Enter the customer ID: "))
+    customer = Customer.find_by_id(customer_id)
+    if customer:
+        print(f"{customer.first_name} {customer.last_name}")
     else:
         print(f"Customer with ID {customer_id} not found.")

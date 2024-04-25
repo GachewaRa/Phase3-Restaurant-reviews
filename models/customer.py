@@ -1,3 +1,5 @@
+#customer.py
+
 from models.__init__ import CURSOR, CONN
 
 class Customer:
@@ -90,7 +92,7 @@ class Customer:
             customer.id = row[0]
             cls.all[customer.id] = customer
         return customer
-
+    
     def reviews(self):
         sql = """
             SELECT *
@@ -111,3 +113,6 @@ class Customer:
         rows = CURSOR.execute(sql, (self.id,)).fetchall()
         from models.restaurant import Restaurant
         return [Restaurant.instance_from_db(row) for row in rows]
+    
+    def full_name(self):
+        return f"{self.first_name} {self.last_name}"

@@ -1,3 +1,5 @@
+#cli.py
+
 from helpers import (
     list_restaurants,
     create_restaurant,
@@ -10,6 +12,7 @@ from helpers import (
     create_review,
     list_restaurant_reviews,
     list_customer_reviews,
+    return_customer_fullname,
 )
 
 def main():
@@ -26,6 +29,7 @@ def main():
         print("9. Create review")
         print("10. List restaurant reviews")
         print("11. List customer reviews")
+        print("12. Get Customer's Full Name")
         print("0. Exit")
 
         choice = input("Enter your choice: ")
@@ -52,6 +56,8 @@ def main():
             list_restaurant_reviews()
         elif choice == "11":
             list_customer_reviews()
+        elif choice == "12":
+            return_customer_fullname()
         elif choice == "0":
             break
         else:
