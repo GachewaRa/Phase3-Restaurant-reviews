@@ -161,3 +161,17 @@ def fanciest_restaurant():
         print(f"The fanciest restaurant is: {fanciest}")
     else:
         print("No restaurants found.")
+
+def restaurant_reviews():
+    restaurant_id = int(input("Enter the restaurant ID: "))
+    restaurant = Restaurant.find_by_id(restaurant_id)
+    if restaurant:
+        reviews = restaurant.all_reviews()
+        if reviews:
+            print("Reviews for", restaurant.name)
+            for review in reviews:
+                print(review)
+        else:
+            print(f"No reviews found for {restaurant.name}.")
+    else:
+        print(f"Restaurant with ID {restaurant_id} not found.")

@@ -125,3 +125,11 @@ class Restaurant:
         """
         row = CURSOR.execute(sql).fetchone()
         return cls.instance_from_db(row) if row else None
+    
+    def all_reviews(self):
+        reviews = self.reviews()
+        formatted_reviews = []
+        for review in reviews:
+            formatted_review = f"Review for {self.name} by {review.customer.full_name()}: {review.star_rating} stars."
+            formatted_reviews.append(formatted_review)
+        return formatted_reviews

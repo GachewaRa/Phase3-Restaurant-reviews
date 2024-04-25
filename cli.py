@@ -17,6 +17,7 @@ from helpers import (
     customer_delete_reviews,
     list_all_reviews,
     fanciest_restaurant,
+    restaurant_reviews,
 )
 
 def main():
@@ -38,6 +39,7 @@ def main():
         print("14. Delete Customer Reviews")
         print("15. List All Reviews")
         print("16. Get the Fanciest Restaurant")
+        print("17. Get All Reviews for a Restaurant")
         print("0. Exit")
 
         choice = input("Enter your choice: ")
@@ -74,6 +76,8 @@ def main():
             list_all_reviews()
         elif choice == "16":
             fanciest_restaurant()
+        elif choice == "17":
+            restaurant_reviews()
         elif choice == "0":
             break
         else:
